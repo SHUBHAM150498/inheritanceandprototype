@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript</title>
+	<style>
+.container{
+	background-image: linear-gradient(to bottom right, red, yellow);
+}	
+.main{
+	text-align: center;
+	color: darkblue;
+	background-image: radial-gradient(red, yellow, green);
+    padding: 10px;
+    margin: 10px;
+}
+.head{
+	color: black;
+}
+.question{
+	color: black;
+}
+.code{
+	background-color: white;
+	padding: 10px;
+}
+    </style>
+</head>
+<body>
+	<div class="container">
+	<div class="main"><h1>JavaScript Handson</h1></div>
+    <div class="main"><h1>INHERITANCE AND PROTO TYPE</h1></div>
+	<br>
+<div class="question">1. Create 2 objects - parent and child. Attach methods to parent and use those methods in child object using parents prototype</div>
+<pre class="code">
+    const parent = {
+      name: "SHUBHAM",
+      printName: function () {
+      console.log(this.name);
+      },
+    };
+    const child = Object.create(parent);
+    child.printName();
+</pre>
+<div class="head">OUTPUT - index.js:40 SHUBHAM</div>
+<br>
+<hr>
+<br>
+
+<div class="question">2. Write code to explain prototype chaining</div>
+<pre class="code">
+    function Mobile(brand, model, os) {
+      this.brand = brand;
+      this.model = model;
+    this.os = os;
+    }
+    const myMobile = new Mobile("Samsung", "A11", "Android 12");
+    console.log(myMobile.hasOwnProperty("brand"));
+</pre>
+<div class="head">index.js:20  true</div>
+<br>
+<hr>
+<br>
+
+<div class="question">3. Add a method to calculate sum of all elements in Array in array's prototype, use that method to calculate sum for multiple arrays</div>
+<pre class="code">
+    const num1 = [10, 20, 30, 40, 50]; 
+    const num2 = [100, 200, 300]; 
+  
+    Array.prototype.total = function () {
+    let sum = 0;
+     for (let i = 0; i < this.length; i++) {
+       sum += this[i];
+    }
+    console.log(sum);
+    };
+  
+    num1.total();
+    num2.total(); 
+</pre>
+<div class="head">OUTPUT -  index.js:76 150<br>index.js:31 600</div>
+<br>
+<hr>
+<br>
+
+<div class="question"> 4. Write a JavaScript function to retrieve all the names of object's own and inherited properties.</div>
+<pre class="code">
+    const studentOne = {
+      name: "SHUBHAM",
+      age: 24,
+    };
+    studentTwo = Object.create(studentOne);
+    studentTwo.birthYear = 2022;
+    for (const key in studentTwo) {
+      console.log(key);
+    }
+</pre>
+<div class="head">index.js:99 birthYear<br> index.js:99 name<br> index.js:99 age</div>
+
+<br>
+</div>
+</body>
+</html>
